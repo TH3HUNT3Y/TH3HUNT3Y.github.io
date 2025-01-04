@@ -14,10 +14,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #262626; /* Updated background color */
+            background-color: #262626;
             color: #fff;
             overflow: hidden;
         }
+        
         main {
             background-color: rgba(0, 0, 0, 0.8);
             padding: 20px 30px;
@@ -26,14 +27,17 @@
             max-width: 400px;
             width: 100%;
         }
+        
         h1 {
             font-size: 2rem;
             margin-bottom: 10px;
         }
+        
         p {
             margin: 0 0 20px;
             font-size: 1rem;
         }
+        
         input {
             width: calc(100% - 20px);
             padding: 10px;
@@ -42,6 +46,7 @@
             border-radius: 5px;
             font-size: 1rem;
         }
+        
         button {
             width: 100%;
             padding: 10px;
@@ -53,13 +58,16 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+        
         button:hover {
             background-color: #cc0000;
         }
+        
         #output {
             margin-top: 15px;
             font-size: 1rem;
         }
+        
         ::selection {
             background-color: #1b1b1b;
             color: #fff;
@@ -67,35 +75,55 @@
     </style>
     <script>
         function base36decode(base36) {
-            return parseInt(base36, 36);
+            // Remove leading '#' if present
+            base36 = base36.replace(/^#/, '');
+            return BigInt('0x' + parseInt(base36, 36).toString(16));
         }
-
+        
         function decodeTicket() {
-            const ticket = document.getElementById("ticket").value.trim();
+            const ticketInput = document.getElementById("ticket").value.trim();
             const output = document.getElementById("output");
-
+            
+            if (!ticketInput) {
+                output.innerHTML = "<p style='color: red;'>Please enter a ticket number</p>";
+                return;
+            }
+            
             try {
-                const combined = base36decode(ticket);
-                const port = combined & 0xFFFF;
-                const ipNum = combined >> 16;
-
+                const combined = base36decode(ticketInput);
+                
+                // Extract port (last 16 bits)
+                const port = Number(combined & BigInt(0xFFFF));
+                const ipNum = combined >> BigInt(16);
+                
+                // Convert number back to IP address
                 const ipParts = [
-                    (ipNum >> 24) & 0xFF,
-                    (ipNum >> 16) & 0xFF,
-                    (ipNum >> 8) & 0xFF,
-                    ipNum & 0xFF
+                    Number((ipNum >> BigInt(24)) & BigInt(0xFF)),
+                    Number((ipNum >> BigInt(16)) & BigInt(0xFF)),
+                    Number((ipNum >> BigInt(8)) & BigInt(0xFF)),
+                    Number(ipNum & BigInt(0xFF))
                 ];
-
+                
                 const ip = ipParts.join('.');
+                
                 output.innerHTML = `
                     <p><strong>Server Address:</strong></p>
                     <p>IP: <strong>${ip}</strong></p>
                     <p>Port: <strong>${port}</strong></p>
                 `;
-            } catch {
+            } catch (error) {
                 output.innerHTML = "<p style='color: red;'>Invalid ticket number</p>";
             }
         }
+        
+        // Add event listener for Enter key
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("ticket").addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    decodeTicket();
+                }
+            });
+        });
     </script>
 </head>
 <body>
