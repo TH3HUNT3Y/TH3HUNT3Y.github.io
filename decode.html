@@ -3,55 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FF0000">
     <title>Decode Ticket</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8;
             margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #262626; /* Updated background color */
+            color: #fff;
+            overflow: hidden;
         }
-        .container {
-            text-align: center;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        main {
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
             max-width: 400px;
             width: 100%;
         }
         h1 {
-            color: #333;
+            font-size: 2rem;
             margin-bottom: 10px;
+        }
+        p {
+            margin: 0 0 20px;
+            font-size: 1rem;
         }
         input {
             width: calc(100% - 20px);
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 15px;
+            margin-bottom: 15px;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 1rem;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF0000;
+            color: #fff;
+            font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #cc0000;
         }
         #output {
-            margin-top: 20px;
-            color: #333;
-            font-size: 16px;
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+        ::selection {
+            background-color: #1b1b1b;
+            color: #fff;
         }
     </style>
     <script>
@@ -61,14 +72,13 @@
 
         function decodeTicket() {
             const ticket = document.getElementById("ticket").value.trim();
+            const output = document.getElementById("output");
+
             try {
                 const combined = base36decode(ticket);
-
-                // Extract port (last 16 bits)
                 const port = combined & 0xFFFF;
                 const ipNum = combined >> 16;
 
-                // Convert number back to IP address
                 const ipParts = [
                     (ipNum >> 24) & 0xFF,
                     (ipNum >> 16) & 0xFF,
@@ -77,24 +87,24 @@
                 ];
 
                 const ip = ipParts.join('.');
-                document.getElementById("output").innerHTML = `
-                    <p>Server address:</p>
-                    <p><strong>IP:</strong> ${ip}</p>
-                    <p><strong>Port:</strong> ${port}</p>
+                output.innerHTML = `
+                    <p><strong>Server Address:</strong></p>
+                    <p>IP: <strong>${ip}</strong></p>
+                    <p>Port: <strong>${port}</strong></p>
                 `;
-            } catch (e) {
-                document.getElementById("output").innerHTML = "<p style='color: red;'>Invalid ticket number</p>";
+            } catch {
+                output.innerHTML = "<p style='color: red;'>Invalid ticket number</p>";
             }
         }
     </script>
 </head>
 <body>
-    <div class="container">
+    <main>
         <h1>Decode Ticket</h1>
-        <p>Enter the ticket number from the sign:</p>
+        <p>Enter the ticket number:</p>
         <input type="text" id="ticket" placeholder="Enter ticket number">
         <button onclick="decodeTicket()">Decode</button>
         <div id="output"></div>
-    </div>
+    </main>
 </body>
 </html>
