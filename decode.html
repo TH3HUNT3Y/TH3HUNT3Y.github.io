@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode Ticket</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            color: #333;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function base36decode(base36) {
+            return parseInt(base36, 36);
+        }
+
+        function decodeTicket() {
+            const ticket = document.getElementById("ticket").value.trim();
+            try {
+                const combined = base36decode(ticket);
+
+                // Extract port (last 16 bits)
+                const port = combined & 0xFFFF;
+                const ipNum = combined >> 16;
+
+                // Convert number back to IP address
+                const ipParts = [
+                    (ipNum >> 24) & 0xFF,
+                    (ipNum >> 16) & 0xFF,
+                    (ipNum >> 8) & 0xFF,
+                    ipNum & 0xFF
+                ];
+
+                const ip = ipParts.join('.');
+                document.getElementById("output").innerHTML = `
+                    <p>Server address:</p>
+                    <p><strong>IP:</strong> ${ip}</p>
+                    <p><strong>Port:</strong> ${port}</p>
+                `;
+            } catch (e) {
+                document.getElementById("output").innerHTML = "<p style='color: red;'>Invalid ticket number</p>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Decode Ticket</h1>
+        <p>Enter the ticket number from the sign:</p>
+        <input type="text" id="ticket" placeholder="Enter ticket number">
+        <button onclick="decodeTicket()">Decode</button>
+        <div id="output"></div>
+    </div>
+</body>
+</html>
