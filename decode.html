@@ -63,12 +63,20 @@
             color: #fff;
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
+            transform: translateY(0);
+        }
+        
+        input:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 75, 75, 0.1);
         }
         
         input:focus {
             outline: none;
             border-color: rgba(255, 99, 99, 0.5);
             background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 75, 75, 0.2);
         }
         
         input::placeholder {
@@ -101,16 +109,24 @@
         }
         
         #output {
-            margin-top: 1.5rem;
-            padding: 1.5rem;
+            margin-top: 0;
+            padding: 0;
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            display: none;  /* Hidden by default */
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+            pointer-events: none;
         }
         
         #output.active {
-            display: block;  /* Show when has active class */
+            opacity: 1;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            max-height: 200px;
+            pointer-events: auto;
         }
         
         #output p {
@@ -127,15 +143,6 @@
         .error {
             color: #ff4b4b !important;
             font-weight: 500;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        #output.active {
-            animation: fadeIn 0.3s ease-out;
         }
     </style>
     <script>
