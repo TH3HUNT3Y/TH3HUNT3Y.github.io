@@ -4,78 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#FF0000">
-    <title>Decode Ticket</title>
+    <title>Ticket Decoder</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #262626;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: #fff;
-            overflow: hidden;
         }
         
         main {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px 30px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
             text-align: center;
-            max-width: 400px;
-            width: 100%;
+            max-width: 450px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff4b4b 0%, #ff7676 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
         
-        p {
-            margin: 0 0 20px;
-            font-size: 1rem;
+        .input-container {
+            position: relative;
+            margin-bottom: 1.5rem;
         }
         
         input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 5px;
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             font-size: 1rem;
+            color: #fff;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: rgba(255, 99, 99, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
         
         button {
             width: 100%;
-            padding: 10px;
+            padding: 1rem;
             border: none;
-            border-radius: 5px;
-            background-color: #FF0000;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #ff4b4b 0%, #ff7676 100%);
             color: #fff;
             font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         button:hover {
-            background-color: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 75, 75, 0.3);
+        }
+        
+        button:active {
+            transform: translateY(0);
         }
         
         #output {
-            margin-top: 15px;
-            font-size: 1rem;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;  /* Hidden by default */
         }
         
-        ::selection {
-            background-color: #1b1b1b;
-            color: #fff;
+        #output.active {
+            display: block;  /* Show when has active class */
+        }
+        
+        #output p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        #output strong {
+            color: #ff7676;
+            font-weight: 600;
+        }
+        
+        .error {
+            color: #ff4b4b !important;
+            font-weight: 500;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        #output.active {
+            animation: fadeIn 0.3s ease-out;
         }
     </style>
     <script>
         function base36decode(base36) {
-            // Remove leading '#' if present
             base36 = base36.replace(/^#/, '');
             return BigInt('0x' + parseInt(base36, 36).toString(16));
         }
@@ -85,18 +149,16 @@
             const output = document.getElementById("output");
             
             if (!ticketInput) {
-                output.innerHTML = "<p style='color: red;'>Please enter a ticket number</p>";
+                output.innerHTML = "<p class='error'>Please enter a ticket number</p>";
+                output.classList.add('active');
                 return;
             }
             
             try {
                 const combined = base36decode(ticketInput);
-                
-                // Extract port (last 16 bits)
                 const port = Number(combined & BigInt(0xFFFF));
                 const ipNum = combined >> BigInt(16);
                 
-                // Convert number back to IP address
                 const ipParts = [
                     Number((ipNum >> BigInt(24)) & BigInt(0xFF)),
                     Number((ipNum >> BigInt(16)) & BigInt(0xFF)),
@@ -107,31 +169,38 @@
                 const ip = ipParts.join('.');
                 
                 output.innerHTML = `
-                    <p><strong>Server Address:</strong></p>
+                    <p><strong>Server Address</strong></p>
                     <p>IP: <strong>${ip}</strong></p>
                     <p>Port: <strong>${port}</strong></p>
                 `;
+                output.classList.add('active');
             } catch (error) {
-                output.innerHTML = "<p style='color: red;'>Invalid ticket number</p>";
+                output.innerHTML = "<p class='error'>Invalid ticket number</p>";
+                output.classList.add('active');
             }
         }
         
-        // Add event listener for Enter key
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById("ticket").addEventListener("keypress", function(event) {
                 if (event.key === "Enter") {
                     decodeTicket();
                 }
             });
+            
+            // Hide output when starting to type a new ticket
+            document.getElementById("ticket").addEventListener("input", function() {
+                document.getElementById("output").classList.remove('active');
+            });
         });
     </script>
 </head>
 <body>
     <main>
-        <h1>Decode Ticket</h1>
-        <p>Enter the ticket number:</p>
-        <input type="text" id="ticket" placeholder="Enter ticket number">
-        <button onclick="decodeTicket()">Decode</button>
+        <h1>Ticket Decoder</h1>
+        <div class="input-container">
+            <input type="text" id="ticket" placeholder="Enter ticket number" autocomplete="off">
+        </div>
+        <button onclick="decodeTicket()">Decode Ticket</button>
         <div id="output"></div>
     </main>
 </body>
