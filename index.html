@@ -175,75 +175,48 @@
         }
 
         .server-entry {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-}
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-.server-entry:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 75, 75, 0.1);
-}
+        .server-entry:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 75, 75, 0.1);
+        }
 
-.delete-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: transparent;
-    color: #ff4b4b;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-}
+        .delete-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            color: #ff4b4b;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
 
-.delete-btn:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 75, 75, 0.1);
-    color: #ff7676;
-}
+        .delete-btn:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 75, 75, 0.1);
+            color: #ff7676;
+        }
 
-.delete-btn svg {
-    width: 16px;
-    height: 16px;
-}
-
-/* Keep other styles the same */
-.server-entry {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.server-entry:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 75, 75, 0.1);
-}
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .delete-btn svg {
+            width: 16px;
+            height: 16px;
         }
 
         .server-name {
@@ -259,19 +232,6 @@
 
         .download-btn {
             background: linear-gradient(45deg, #2ecc71 0%, #27ae60 100%);
-        }
-
-        .error-message {
-            color: #ff4b4b;
-            font-size: 0.875rem;
-            margin-top: -1rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .error-message.visible {
-            opacity: 1;
         }
 
         .empty-state {
@@ -323,8 +283,7 @@
         <div class="card">
             <h2>Add Server</h2>
             <div class="input-container">
-                <input type="text" id="serverIP" placeholder="Server IP (e.g., 192.168.1.1)">
-                <div id="ipError" class="error-message">Please enter a valid IP address</div>
+                <input type="text" id="serverIP" placeholder="Server address or identifier">
             </div>
             <div class="input-container">
                 <input type="text" id="reason" placeholder="Reason">
@@ -341,13 +300,13 @@
     </div>
 
     <script>
-function deleteServer(index) {
-    if (confirm('Are you sure you want to delete this server?')) {
-        servers.splice(index, 1);
-        localStorage.setItem('servers', JSON.stringify(servers));
-        displayServers();
-    }
-}
+        function deleteServer(index) {
+            if (confirm('Are you sure you want to delete this server?')) {
+                servers.splice(index, 1);
+                localStorage.setItem('servers', JSON.stringify(servers));
+                displayServers();
+            }
+        }
 
         function base36decode(base36) {
             base36 = base36.replace(/^#/, '');
@@ -401,33 +360,10 @@ function deleteServer(index) {
         const addServerBtn = document.getElementById('addServer');
         const serverListDiv = document.getElementById('serverList');
         const downloadBtn = document.getElementById('downloadBtn');
-        const ipError = document.getElementById('ipError');
 
         if (username) {
             usernameInput.value = username;
         }
-
-        function isValidIP(ip) {
-            const ipRegex = /^(\d{1,3}\.){3}\d{1,3}$/;
-            if (!ipRegex.test(ip)) return false;
-            
-            const parts = ip.split('.');
-            return parts.every(part => {
-                const num = parseInt(part, 10);
-                return num >= 0 && num <= 255;
-            });
-        }
-
-        serverIPInput.addEventListener('input', () => {
-            const ip = serverIPInput.value.trim();
-            if (ip && !isValidIP(ip)) {
-                ipError.classList.add('visible');
-                addServerBtn.disabled = true;
-            } else {
-                ipError.classList.remove('visible');
-                addServerBtn.disabled = false;
-            }
-        });
 
         saveUsernameBtn.addEventListener('click', () => {
             username = usernameInput.value.trim();
@@ -446,8 +382,8 @@ function deleteServer(index) {
                 return;
             }
 
-            if (!isValidIP(serverIP)) {
-                alert('Please enter a valid IP address!');
+            if (!serverIP) {
+                alert('Please enter a server address or identifier!');
                 return;
             }
 
@@ -468,7 +404,6 @@ function deleteServer(index) {
 
             serverIPInput.value = '';
             reasonInput.value = '';
-            ipError.classList.remove('visible');
 
             displayServers();
         });
@@ -484,7 +419,14 @@ function deleteServer(index) {
             }
 
             serverListDiv.innerHTML = servers.map((server, index) => `
-                <div class="server-entry" style="animation-delay: ${index * 0.1}s">
+                <div class="server-entry">
+                    <button class="delete-btn" onclick="deleteServer(${index})" title="Delete server">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h18"></path>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                        </svg>
+                    </button>
                     <div class="server-name">${server.serverIP}</div>
                     <div class="server-details">
                         Added by: ${server.username}<br>
@@ -494,28 +436,7 @@ function deleteServer(index) {
                 </div>
             `).join('');
         }
-        function displayServers() {
-    if (servers.length === 0) {
-        serverListDiv.innerHTML = `
-            <div class="empty-state">
-                No servers added yet
-            </div>
-        `;
-        return;
-    }
 
-    serverListDiv.innerHTML = servers.map((server, index) => `
-        <div class="server-entry">
-            <button class="delete-btn" onclick="deleteServer(${index})">Delete</button>
-            <div class="server-name">${server.serverIP}</div>
-            <div class="server-details">
-                Added by: ${server.username}<br>
-                Reason: ${server.reason}<br>
-                Added: ${server.timestamp}
-            </div>
-        </div>
-    `).join('');
-}
         downloadBtn.addEventListener('click', () => {
             const content = servers.map(server => 
                 `Server: ${server.serverIP}\nAdded by: ${server.username}\nReason: ${server.reason}\nTimestamp: ${server.timestamp}\n-----------------`
@@ -526,53 +447,20 @@ function deleteServer(index) {
             const a = document.createElement('a');
             a.href = url;
             a.download = 'servers.txt';
-            document.body.appendChild(a);
             a.click();
-            document.body.removeChild(a);
             URL.revokeObjectURL(url);
         });
 
-        // Initialize display
-        displayServers();
 
-        // Event listener for ticket input
-        document.getElementById("ticket").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                decodeTicket();
+        function deleteServer(index) {      
+            if (confirm('Are you sure you want to delete this server?')) {
+                servers.splice(index, 1);
+                localStorage.setItem('servers', JSON.stringify(servers));
+                displayServers();
             }
-        });
+        }
 
-        document.getElementById("ticket").addEventListener("input", function() {
-            document.getElementById("ticketOutput").classList.remove('active');
-        });
-        function displayServers() {
-    if (servers.length === 0) {
-        serverListDiv.innerHTML = `
-            <div class="empty-state">
-                No servers added yet
-            </div>
-        `;
-        return;
-    }
-
-    serverListDiv.innerHTML = servers.map((server, index) => `
-        <div class="server-entry">
-            <button class="delete-btn" onclick="deleteServer(${index})" title="Delete server">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 6h18"></path>
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-                </svg>
-            </button>
-            <div class="server-name">${server.serverIP}</div>
-            <div class="server-details">
-                Added by: ${server.username}<br>
-                Reason: ${server.reason}<br>
-                Added: ${server.timestamp}
-            </div>
-        </div>
-    `).join('');
-}
+        displayServers();
     </script>
 </body>
 </html>
