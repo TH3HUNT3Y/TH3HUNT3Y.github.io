@@ -1,466 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#FF0000">
-    <title>Server Tracker</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: #fff;
-        }
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-        .ticket-decoder {
-            position: fixed;
-            top: 20px;
-            left: 2040px;
-            width: 300px;
-            z-index: 100;
-        }
-        
-        .main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 90vh;
-            margin-left: 0px;
-            gap: 2rem;
-        }
-        
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-            width: 100%;
-            max-width: 500px;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, #ff4b4b 0%, #ff7676 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-            text-align: center;
-        }
-        
-        .input-container {
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
-        
-        input {
-            width: 100%;
-            padding: 1rem 1.25rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            font-size: 1rem;
-            color: #fff;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        input:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 75, 75, 0.1);
-        }
-        
-        input:focus {
-            outline: none;
-            border-color: rgba(255, 99, 99, 0.5);
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 75, 75, 0.2);
-        }
-        
-        input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        
-        button {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(45deg, #ff4b4b 0%, #ff7676 100%);
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
-        }
-        
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 75, 75, 0.3);
-        }
-        
-        button:active {
-            transform: translateY(0);
-        }
-        
-        button:disabled {
-            background: linear-gradient(45deg, #666 0%, #888 100%);
-            cursor: not-allowed;
-        }
-        
-        .output {
-            margin-top: 0;
-            padding: 0;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.5s ease-in-out;
-        }
-        
-        .output.active {
-            opacity: 1;
-            margin-top: 1.5rem;
-            padding: 1.5rem;
-            max-height: 500px;
-        }
-        
-        .output p {
-            margin: 0.5rem 0;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        
-        .output strong {
-            color: #ff7676;
-            font-weight: 600;
-        }
-        
-        .error {
-            color: #ff4b4b !important;
-            font-weight: 500;
-        }
+    <link rel="stylesheet" href="style.css" />
+    <title>About Me</title>
+  </head>
+  <body>
+    <header data-aos="fade-down" data-aos-delay="200">
+      <div class="container">
+        <div class="content">
+          <div class="logo">
+            <a href="">HUNT3R.</a>
+          </div>
 
-        .server-list {
-            max-height: 400px;
-            overflow-y: auto;
-            margin-top: 1.5rem;
-        }
+          <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
 
-        .server-entry {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
+          <div class="extra-nav">
+            <!-- <a href="#"><span>AVAILABLE FOR WORK</span></a>
+          </div> 
+        </div> -->
+      </div>
+    </header>
 
-        .server-entry:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 75, 75, 0.1);
-        }
+    <section class="hero">
+      <div class="container">
+        <div class="content">
+          <div class="shape-1"></div>
+          <div class="shape-2"></div>
+          <div class="line"></div>
 
-        .delete-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: transparent;
-            color: #ff4b4b;
-            border: none;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            margin: 0;
-        }
+          <div class="text">
+            <h1 class="row-1" data-aos="fade-right"
+            data-aos-duration="2000">WEB APP</h1>
+            <h1 class="row-2" data-aos="flip-down" data-aos-duration="2000">DEVELOPMENT</h1>
+            <h1
+              class="row-3"
+              data-aos="fade-left"
+              data-aos-duration="2000"
+            >
+              ENTHUSIAST
+            </h1>
+          </div>
 
-        .delete-btn:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 75, 75, 0.1);
-            color: #ff7676;
-        }
+          <box-icon name="chevron-down" class="arrow"></box-icon>
 
-        .delete-btn svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        .server-name {
-            font-weight: 600;
-            color: #ff7676;
-            margin-bottom: 0.5rem;
-        }
-
-        .server-details {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .download-btn {
-            background: linear-gradient(45deg, #2ecc71 0%, #27ae60 100%);
-        }
-
-        .empty-state {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.5);
-            padding: 2rem;
-            font-style: italic;
-        }
-
-        @media (max-width: 1200px) {
-            .ticket-decoder {
-                position: relative;
-                top: 0;
-                left: 0;
-                width: 100%;
-                max-width: 500px;
-                margin: 0 auto 2rem auto;
-            }
-            
-            .main-container {
-                margin-left: 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Ticket Decoder Section -->
-    <div class="ticket-decoder card">
-        <h2>Ticket Decoder</h2>
-        <div class="input-container">
-            <input type="text" id="ticket" placeholder="Enter ticket number" autocomplete="off">
-        </div>
-        <button onclick="decodeTicket()">Decode Ticket</button>
-        <div id="ticketOutput" class="output"></div>
-    </div>
-
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Username Section -->
-        <div class="card">
-            <h2>Set Username</h2>
-            <div class="input-container">
-                <input type="text" id="username" placeholder="Enter your username">
+          <div class="short-info">
+            <div
+              class="left-side"
+              data-aos="fade-up-right"
+              data-aos-delay="300"
+            >
+              <h1>Based in Canada</h1>
+              <p class="time"></p>
             </div>
-            <button id="saveUsername">Save Username</button>
-        </div>
 
-        <!-- Add Server Section -->
-        <div class="card">
-            <h2>Add Server</h2>
-            <div class="input-container">
-                <input type="text" id="serverIP" placeholder="Server address or identifier">
+            <div
+              class="right-side"
+              data-aos="fade-up-left"
+              data-aos-delay="300"
+            >
+              <p>Freelance Availibility</p>
+              <h1>
+                <div class="pulse"></div>
+                VERY LIMITED HOURS
+              </h1>
             </div>
-            <div class="input-container">
-                <input type="text" id="reason" placeholder="Reason">
-            </div>
-            <button id="addServer">Add Server</button>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Server List Section -->
-        <div class="card">
-            <h2>Server List</h2>
-            <div id="serverList" class="server-list"></div>
-            <button id="downloadBtn" class="download-btn">Download servers.txt</button>
-        </div>
-    </div>
-
-    <script>
-        function deleteServer(index) {
-            if (confirm('Are you sure you want to delete this server?')) {
-                servers.splice(index, 1);
-                localStorage.setItem('servers', JSON.stringify(servers));
-                displayServers();
-            }
-        }
-
-        function base36decode(base36) {
-            base36 = base36.replace(/^#/, '');
-            return BigInt('0x' + parseInt(base36, 36).toString(16));
-        }
-        
-        function decodeTicket() {
-            const ticketInput = document.getElementById("ticket").value.trim();
-            const output = document.getElementById("ticketOutput");
-            
-            if (!ticketInput) {
-                output.innerHTML = "<p class='error'>Please enter a ticket number</p>";
-                output.classList.add('active');
-                return;
-            }
-            
-            try {
-                const combined = base36decode(ticketInput);
-                const port = Number(combined & BigInt(0xFFFF));
-                const ipNum = combined >> BigInt(16);
-                
-                const ipParts = [
-                    Number((ipNum >> BigInt(24)) & BigInt(0xFF)),
-                    Number((ipNum >> BigInt(16)) & BigInt(0xFF)),
-                    Number((ipNum >> BigInt(8)) & BigInt(0xFF)),
-                    Number(ipNum & BigInt(0xFF))
-                ];
-                
-                const ip = ipParts.join('.');
-                
-                output.innerHTML = `
-                    <p><strong>Server Address</strong></p>
-                    <p>IP: <strong>${ip}</strong></p>
-                    <p>Port: <strong>${port}</strong></p>
-                `;
-                output.classList.add('active');
-            } catch (error) {
-                output.innerHTML = "<p class='error'>Invalid ticket number</p>";
-                output.classList.add('active');
-            }
-        }
-
-        // Server Management Functions
-        let username = localStorage.getItem('username') || '';
-        let servers = JSON.parse(localStorage.getItem('servers')) || [];
-
-        const usernameInput = document.getElementById('username');
-        const saveUsernameBtn = document.getElementById('saveUsername');
-        const serverIPInput = document.getElementById('serverIP');
-        const reasonInput = document.getElementById('reason');
-        const addServerBtn = document.getElementById('addServer');
-        const serverListDiv = document.getElementById('serverList');
-        const downloadBtn = document.getElementById('downloadBtn');
-
-        if (username) {
-            usernameInput.value = username;
-        }
-
-        saveUsernameBtn.addEventListener('click', () => {
-            username = usernameInput.value.trim();
-            if (username) {
-                localStorage.setItem('username', username);
-                alert('Username saved!');
-            }
-        });
-
-        addServerBtn.addEventListener('click', () => {
-            const serverIP = serverIPInput.value.trim();
-            const reason = reasonInput.value.trim();
-
-            if (!username) {
-                alert('Please set your username first!');
-                return;
-            }
-
-            if (!serverIP) {
-                alert('Please enter a server address or identifier!');
-                return;
-            }
-
-            if (!reason) {
-                alert('Please enter a reason!');
-                return;
-            }
-
-            const newServer = {
-                username,
-                serverIP,
-                reason,
-                timestamp: new Date().toLocaleString()
-            };
-
-            servers.unshift(newServer);
-            localStorage.setItem('servers', JSON.stringify(servers));
-
-            serverIPInput.value = '';
-            reasonInput.value = '';
-
-            displayServers();
-        });
-
-        function displayServers() {
-            if (servers.length === 0) {
-                serverListDiv.innerHTML = `
-                    <div class="empty-state">
-                        No servers added yet
-                    </div>
-                `;
-                return;
-            }
-
-            serverListDiv.innerHTML = servers.map((server, index) => `
-                <div class="server-entry">
-                    <button class="delete-btn" onclick="deleteServer(${index})" title="Delete server">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 6h18"></path>
-                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-                        </svg>
-                    </button>
-                    <div class="server-name">${server.serverIP}</div>
-                    <div class="server-details">
-                        Added by: ${server.username}<br>
-                        Reason: ${server.reason}<br>
-                        Added: ${server.timestamp}
-                    </div>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="content">
+                <div class="title">
+                    <h2 data-aos="fade-right" data-aos-duration="500" data-aos-delay="300">About</h1>
+                    <h1 data-aos="fade-right" data-aos-duration="500" data-aos-delay="500">HUNT3R</h2>
                 </div>
-            `).join('');
-        }
+                
+                <div class="profile-container" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
+                  <div class="profile">
+                    <img src="assets/ai_profile.png" alt="profile">
+                  </div>
+                </div>
+                
+                <div class="about-me" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                  <p>I am a full time student and a developer for HTML CSS JAVASCRIPT and PYTHON and a bit of JAVA.</p>
+                  <button>Learn More <box-icon class="arrow" name='arrow-back'></box-icon></button>
+                </div>
 
-        downloadBtn.addEventListener('click', () => {
-            const content = servers.map(server => 
-                `Server: ${server.serverIP}\nAdded by: ${server.username}\nReason: ${server.reason}\nTimestamp: ${server.timestamp}\n-----------------`
-            ).join('\n');
+              <div class="text-wrapper" data-aos="flip-up">
+                <div class="text">
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
 
-            const blob = new Blob([content], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'servers.txt';
-            a.click();
-            URL.revokeObjectURL(url);
-        });
+    <section class="project" id="project">
+      <div class="container">
+        <div class="content">
+          <div class="header">
+            <button data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" onclick="location.href='projects/index.html'">See All Projects <box-icon class="arrow" name='arrow-back'></box-icon></button>
+
+            <div class="title">
+              <h1 class="row-1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">Recent</h1>
+              <H1 class="row-2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">PROJECTS</H1>
+            </div>
+          </div>
+
+          <div class="project-area"  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="projects" onclick="location.href='projects/Project'">
+              <img src="assets/project-1.png" alt="project-1">
+              <div class="desc">
+                <h1>Nothing</h1>
+                <p>Nothing Yet</p>
+              </div>
+            </div>
+            <div class="projects" onclick="location.href='projects/Project'">
+              <img src="assets/project-2.png" alt="project-2">
+              <div class="desc">
+                <h1>Nothing</h1>
+                <p>Nothing Yet</p>
+            </div>
+            </div>
+            <div class="projects" onclick="location.href='projects/Project'">
+              <img src="assets/project-3.png" alt="project-3">
+              <div class="desc">
+                <h1>Nothing</h1>
+                <p>Nothing Yet</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
-        function deleteServer(index) {      
-            if (confirm('Are you sure you want to delete this server?')) {
-                servers.splice(index, 1);
-                localStorage.setItem('servers', JSON.stringify(servers));
-                displayServers();
-            }
-        }
 
-        displayServers();
+    <script src="script.js"></script>
+
+    <!-- Box Icon -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
     </script>
-</body>
+  </body>
 </html>
