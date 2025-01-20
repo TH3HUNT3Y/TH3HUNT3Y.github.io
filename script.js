@@ -16,8 +16,8 @@ window.addEventListener("scroll", () => {
 
 function updateTime() {
   const now = new Date();
-  const jakartaTime = now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" });
-  const [date, time] = jakartaTime.split(", ");
+  const ontarioTime = now.toLocaleString("en-US", { timeZone: "America/Toronto" });
+  const [date, time] = ontarioTime.split(", ");
   timeText.textContent = `${time} GMT-5`;
 }
 
