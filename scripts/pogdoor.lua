@@ -1,6 +1,6 @@
 -- Instances:
 local Converted = {
-	["_Starlight"] = Instance.new("ScreenGui");
+	["_Gaydar"] = Instance.new("ScreenGui");
 	["_Frame"] = Instance.new("Frame");
 	["_UICorner"] = Instance.new("UICorner");
 	["_UIStroke"] = Instance.new("UIStroke");
@@ -122,19 +122,19 @@ local Converted = {
 
 -- Properties:
 
-Converted["_Starlight"].DisplayOrder = 999
-Converted["_Starlight"].IgnoreGuiInset = true
-Converted["_Starlight"].ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
-Converted["_Starlight"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Converted["_Starlight"].Name = "Starlight"
-Converted["_Starlight"].Parent = game:GetService("CoreGui")
+Converted["_Gaydar"].DisplayOrder = 999
+Converted["_Gaydar"].IgnoreGuiInset = true
+Converted["_Gaydar"].ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
+Converted["_Gaydar"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Converted["_Gaydar"].Name = "Gaydar"
+Converted["_Gaydar"].Parent = game:GetService("CoreGui")
 
 Converted["_Frame"].BackgroundColor3 = Color3.fromRGB(12.000000234693289, 12.000000234693289, 12.000000234693289)
 Converted["_Frame"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_Frame"].BorderSizePixel = 0
 Converted["_Frame"].Position = UDim2.new(0.0619825348, 0, 0.0790882483, 0)
 Converted["_Frame"].Size = UDim2.new(0, 621, 0, 353)
-Converted["_Frame"].Parent = Converted["_Starlight"]
+Converted["_Frame"].Parent = Converted["_Gaydar"]
 
 Converted["_UICorner"].CornerRadius = UDim.new(0, 6)
 Converted["_UICorner"].Parent = Converted["_Frame"]
@@ -216,7 +216,7 @@ Converted["_TextBox"].ClearTextOnFocus = false
 Converted["_TextBox"].Font = Enum.Font.Code
 Converted["_TextBox"].MultiLine = true
 Converted["_TextBox"].PlaceholderColor3 = Color3.fromRGB(153.00000607967377, 153.00000607967377, 153.00000607967377)
-Converted["_TextBox"].PlaceholderText = "-- welcome to starlight"
+Converted["_TextBox"].PlaceholderText = "-- welcome to Gaydar"
 Converted["_TextBox"].Text = ""
 Converted["_TextBox"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_TextBox"].TextSize = 18
@@ -518,7 +518,7 @@ Converted["_UIStroke10"].Thickness = 1.5
 Converted["_UIStroke10"].Parent = Converted["_Sledge"]
 
 Converted["_Star"].Font = Enum.Font.Gotham
-Converted["_Star"].Text = "starlight hint"
+Converted["_Star"].Text = "Gaydar hint"
 Converted["_Star"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Star"].TextScaled = true
 Converted["_Star"].TextSize = 14
@@ -586,7 +586,7 @@ Converted["_ScrollingFrame"].Size = UDim2.new(0, 308, 0, 206)
 Converted["_ScrollingFrame"].Parent = Converted["_Logs"]
 
 Converted["_Template"].Font = Enum.Font.Gotham
-Converted["_Template"].Text = "💫starlight: Welcome to the Logs!"
+Converted["_Template"].Text = "💫Gaydar: Welcome to the Logs!"
 Converted["_Template"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Template"].TextSize = 20
 Converted["_Template"].TextTruncate = Enum.TextTruncate.AtEnd
@@ -821,7 +821,7 @@ Converted["_Verify"].Name = "Verify"
 Converted["_Verify"].Parent = Converted["_Frame"]
 
 Converted["_Verify1"].Font = Enum.Font.Gotham
-Converted["_Verify1"].Text = "Starlight - Verification"
+Converted["_Verify1"].Text = "Gaydar - Verification"
 Converted["_Verify1"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Verify1"].TextScaled = true
 Converted["_Verify1"].TextSize = 50
@@ -837,7 +837,7 @@ Converted["_Verify1"].Name = "Verify"
 Converted["_Verify1"].Parent = Converted["_Verify"]
 
 Converted["_Verify2"].Font = Enum.Font.Gotham
-Converted["_Verify2"].Text = "To verify, go to https://starlightkey.netlify.app and get the key."
+Converted["_Verify2"].Text = "To verify, go to https://Gaydarkey.netlify.app and get the key."
 Converted["_Verify2"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Verify2"].TextScaled = true
 Converted["_Verify2"].TextSize = 50
@@ -924,7 +924,7 @@ Converted["_ImageLabel9"].Size = UDim2.new(0, 35, 0, 35)
 Converted["_ImageLabel9"].Parent = Converted["_m"]
 
 Converted["_str"].Font = Enum.Font.Gotham
-Converted["_str"].Text = "starlight"
+Converted["_str"].Text = "Gaydar"
 Converted["_str"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_str"].TextScaled = true
 Converted["_str"].TextSize = 14
@@ -937,7 +937,7 @@ Converted["_str"].Position = UDim2.new(0.856636465, 0, 0.214312702, 0)
 Converted["_str"].Size = UDim2.new(0, 79, 0, 42)
 Converted["_str"].Visible = false
 Converted["_str"].Name = "str"
-Converted["_str"].Parent = Converted["_Starlight"]
+Converted["_str"].Parent = Converted["_Gaydar"]
 
 Converted["_UICorner20"].CornerRadius = UDim.new(0, 6)
 Converted["_UICorner20"].Parent = Converted["_str"]
@@ -954,7 +954,7 @@ local fake_module_scripts = {}
 
 -- Fake Local Scripts:
 
-local function XOGC_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Frame.LocalScript
+local function XOGC_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Frame.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Frame1"]
@@ -1007,7 +1007,7 @@ local function XOGC_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Fra
 		end
 	end)
 end
-local function WOYK_fake_script() -- Fake Script: StarterGui.Starlight.Frame.c.LocalScript
+local function WOYK_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.c.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_c"]
@@ -1043,7 +1043,7 @@ local function WOYK_fake_script() -- Fake Script: StarterGui.Starlight.Frame.c.L
 		frame:Destroy()
 	end)
 end
-local function XYIHZI_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Framee.TextBox.LocalScript
+local function XYIHZI_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Framee.TextBox.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_TextBox"]
@@ -1058,7 +1058,7 @@ local function XYIHZI_fake_script() -- Fake Script: StarterGui.Starlight.Frame.F
 
 	script.Parent.Font = Enum.Font.Code
 end
-local function CZXWFMI_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Framee.Clear.LocalScript
+local function CZXWFMI_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Framee.Clear.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Clear"]
@@ -1091,7 +1091,7 @@ local function CZXWFMI_fake_script() -- Fake Script: StarterGui.Starlight.Frame.
 		script.Parent.Parent.TextBox.Text = ""
 	end)
 end
-local function HFCTHJ_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Framee.Execute.LocalScript
+local function HFCTHJ_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Framee.Execute.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Execute"]
@@ -1121,7 +1121,7 @@ local function HFCTHJ_fake_script() -- Fake Script: StarterGui.Starlight.Frame.F
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function ECAX_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Framee.scan.LocalScript
+local function ECAX_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Framee.scan.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_scan"]
@@ -1151,7 +1151,7 @@ local function ECAX_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Fra
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function XJDJGP_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Framee.rsix.LocalScript
+local function XJDJGP_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Framee.rsix.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_rsix"]
@@ -1181,7 +1181,7 @@ local function XJDJGP_fake_script() -- Fake Script: StarterGui.Starlight.Frame.F
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function BYJDCB_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Presets.Polaria.LocalScript
+local function BYJDCB_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Presets.Polaria.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Polaria"]
@@ -1211,7 +1211,7 @@ local function BYJDCB_fake_script() -- Fake Script: StarterGui.Starlight.Frame.P
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function FMHRPV_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Presets.Shutdown.LocalScript
+local function FMHRPV_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Presets.Shutdown.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Shutdown"]
@@ -1241,7 +1241,7 @@ local function FMHRPV_fake_script() -- Fake Script: StarterGui.Starlight.Frame.P
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function LEZT_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Presets.Trash.LocalScript
+local function LEZT_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Presets.Trash.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Trash"]
@@ -1271,7 +1271,7 @@ local function LEZT_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Pre
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function GBUM_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Presets.Sledge.LocalScript
+local function GBUM_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Presets.Sledge.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Sledge"]
@@ -1301,7 +1301,7 @@ local function GBUM_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Pre
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function UTZD_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Presets.Star.LocalScript
+local function UTZD_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Presets.Star.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Star"]
@@ -1331,7 +1331,7 @@ local function UTZD_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Pre
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function JXGJ_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Presets.CFour.LocalScript
+local function JXGJ_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Presets.CFour.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_CFour"]
@@ -1361,7 +1361,7 @@ local function JXGJ_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Pre
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.LocalScript
+local function JWFWE_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Frame"]
@@ -1431,7 +1431,7 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 		if foundExploit then return false end
 		if not isLikelyBackdoorRemote(remote) then return false end
 	
-		local modelName = "starlight_"..tostring(os.clock()):gsub("%.", "")
+		local modelName = "Gaydar_"..tostring(os.clock()):gsub("%.", "")
 		local foundEvent = false
 	
 		local connection = game:GetService("ReplicatedStorage").DescendantAdded:Connect(function(instance)
@@ -1445,7 +1445,7 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 		local success = pcall(function()
 	
 			if mode == 2 and isFunction then
-				remote:InvokeServer('starlight_check', [[
+				remote:InvokeServer('Gaydar_check', [[
 	                local m=Instance.new("Folder")
 	                m.Name="]]..modelName..[["
 	                m.Parent=game:GetService("ReplicatedStorage")
@@ -1459,7 +1459,7 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 	            ]])
 			else
 				if isFunction and mode == 2 then
-					remote:InvokeServer('starlight_check', [[
+					remote:InvokeServer('Gaydar_check', [[
 	                    local m=Instance.new("Folder")
 	                    m.Name="]]..modelName..[["
 	                    m.Parent=game:GetService("ReplicatedStorage")
@@ -1514,11 +1514,11 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 			if (remote:IsA("RemoteEvent") or remote:IsA("RemoteFunction")) then
 				count += 1
 				remotes[count] = remote
-				print(string.format("  \x1b💫 starlight: [%d] Scanning: %s\x1b", count, remote:GetFullName()))
+				print(string.format("  \x1b💫 Gaydar: [%d] Scanning: %s\x1b", count, remote:GetFullName()))
 			end
 		end
 	
-		print(string.format("💫 starlight: 🔍 scanning %d remotes", count))
+		print(string.format("💫 Gaydar: 🔍 scanning %d remotes", count))
 	
 	
 		local MAX_CONCURRENT = 16 
@@ -1535,7 +1535,7 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 			activeTasks += 1
 			task.spawn(function()
 				if testRemote(remotes[i], remotes[i]:IsA("RemoteFunction")) then
-					print(string.format("\x1b💫 starlight:  backdoor found: %s\x1b", remotes[i]:GetFullName()))
+					print(string.format("\x1b💫 Gaydar:  backdoor found: %s\x1b", remotes[i]:GetFullName()))
 				end
 				activeTasks -= 1
 				taskDone:Fire()
@@ -1551,10 +1551,10 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 		FinishedFound = true
 		
 		if not foundExploit then
-			print("\x1b💫 starlight: no backdoor found\x1b")
+			print("\x1b💫 Gaydar: no backdoor found\x1b")
 		end
 	
-		print(string.format("💫 starlight: scan completed in \x1b%.3f seconds\x1b", scanTime))
+		print(string.format("💫 Gaydar: scan completed in \x1b%.3f seconds\x1b", scanTime))
 	end
 	
 	local function fireRemoteEvent(code)
@@ -1567,9 +1567,9 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 				remoteFunction:InvokeServer(code)
 			end)
 		else
-			warn("💫 starlight: no backdoor, cannot execute code.")
+			warn("💫 Gaydar: no backdoor, cannot execute code.")
 			game.StarterGui:SetCore("SendNotification",{
-				Title = "💫 starlight",
+				Title = "💫 Gaydar",
 				Text = "no backdoor found, or you didn't scan! - can't run code.",
 				Duration = 12
 			})
@@ -1626,7 +1626,7 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 		script.Parent.Logs.Visible = false
 	end)
 	script.Parent.Presets.Star.MouseButton1Click:Connect(function()
-		script.Parent.Framee.TextBox.Text = 'local h=Instance.new("Hint") h.Parent=workspace h.Text="starlight on top!"'
+		script.Parent.Framee.TextBox.Text = 'local h=Instance.new("Hint") h.Parent=workspace h.Text="Gaydar on top!"'
 		script.Parent.Framee.Visible = true
 		script.Parent.Presets.Visible = false
 		script.Parent.Logs.Visible = false
@@ -1640,7 +1640,7 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 	script.Parent.Logs.ToggleMode.MouseButton1Click:Connect(function()
 		if remoteFunction or remoteEvent then
 			game.StarterGui:SetCore("SendNotification",{
-				Title = "💫 starlight",
+				Title = "💫 Gaydar",
 				Text = "the backdoor is already found, you don't need to change this!",
 				Duration = 5
 			})
@@ -1659,7 +1659,7 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 		end
 	end)
 	game.StarterGui:SetCore("SendNotification",{
-		Title = "💫 starlight",
+		Title = "💫 Gaydar",
 		Text = "discord server: https://discord.gg/sCwubxMJ9z",
 		Duration = 12
 	})
@@ -1685,7 +1685,7 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 			script.Parent.Framee.Log.Text = "backdoor: " .. remoteEvent.Name
 			script.Parent.stat.ImageColor3 = Color3.fromRGB(159, 226, 191)
 			game.StarterGui:SetCore("SendNotification",{
-				Title = "💫 starlight",
+				Title = "💫 Gaydar",
 				Text = "backdoor found in " .. scanTime .."s! backdoor: " .. remoteEvent.Name,
 				Duration = 5
 			})
@@ -1705,7 +1705,7 @@ local function JWFWE_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 	end)
 	
 end
-local function DBHTX_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Logs.LocalScript
+local function DBHTX_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Logs.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Logs"]
@@ -1741,7 +1741,7 @@ local function DBHTX_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 	_G.getConsoleLogs = getLogs
 	
 end
-local function GKCTZ_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Logs.ToggleMode.LocalScript
+local function GKCTZ_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Logs.ToggleMode.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_ToggleMode"]
@@ -1771,7 +1771,7 @@ local function GKCTZ_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Lo
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function WZNKOGS_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Sidebar.Executor.LocalScript
+local function WZNKOGS_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Sidebar.Executor.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Executor"]
@@ -1801,7 +1801,7 @@ local function WZNKOGS_fake_script() -- Fake Script: StarterGui.Starlight.Frame.
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function EUNWGL_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Sidebar.Presets.LocalScript
+local function EUNWGL_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Sidebar.Presets.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Presets1"]
@@ -1831,7 +1831,7 @@ local function EUNWGL_fake_script() -- Fake Script: StarterGui.Starlight.Frame.S
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function NBHNWLD_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Sidebar.Logs.LocalScript
+local function NBHNWLD_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Sidebar.Logs.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Logs1"]
@@ -1861,7 +1861,7 @@ local function NBHNWLD_fake_script() -- Fake Script: StarterGui.Starlight.Frame.
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function BVJVWCY_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Verify.Btn.LocalScript
+local function BVJVWCY_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.Verify.Btn.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Btn"]
@@ -1891,7 +1891,7 @@ local function BVJVWCY_fake_script() -- Fake Script: StarterGui.Starlight.Frame.
 		script.Parent.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function ACIEP_fake_script() -- Fake Script: StarterGui.Starlight.Frame.m.LocalScript
+local function ACIEP_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.m.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_m"]
@@ -1924,7 +1924,7 @@ local function ACIEP_fake_script() -- Fake Script: StarterGui.Starlight.Frame.m.
 		button.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function DDTU_fake_script() -- Fake Script: StarterGui.Starlight.Frame.LocalScript
+local function DDTU_fake_script() -- Fake Script: StarterGui.Gaydar.Frame.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Frame"]
@@ -1941,7 +1941,7 @@ local function DDTU_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Loc
 		script.Parent.Size = UDim2.new(script.Parent.Size.X.Scale * 0.75, script.Parent.Size.X.Offset * 0.75,
 			script.Parent.Size.Y.Scale * 0.75, script.Parent.Size.Y.Offset * 0.75)
 		game.StarterGui:SetCore("SendNotification",{
-			Title = "💫 starlight",
+			Title = "💫 Gaydar",
 			Text = "now using phone ui",
 			Duration = 5
 		})
@@ -1953,13 +1953,13 @@ local function DDTU_fake_script() -- Fake Script: StarterGui.Starlight.Frame.Loc
 		end
 	else
 		game.StarterGui:SetCore("SendNotification",{
-			Title = "💫 starlight",
+			Title = "💫 Gaydar",
 			Text = "now using pc ui",
 			Duration = 5
 		})
 	end
 end
-local function PUNBVF_fake_script() -- Fake Script: StarterGui.Starlight.str.LocalScript
+local function PUNBVF_fake_script() -- Fake Script: StarterGui.Gaydar.str.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_str"]
@@ -1992,7 +1992,7 @@ local function PUNBVF_fake_script() -- Fake Script: StarterGui.Starlight.str.Loc
 		button.UIStroke.Color = Color3.fromRGB(57,57,57)
 	end)
 end
-local function QZTES_fake_script() -- Fake Script: StarterGui.Starlight.str.LocalScript
+local function QZTES_fake_script() -- Fake Script: StarterGui.Gaydar.str.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_str"]
