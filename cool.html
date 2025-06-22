@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auto Download</title>
+    <script>
+      window.onload = function () {
+        // Trigger download
+        const a = document.createElement("a");
+        a.href = "image.jpg"; // Path to file
+        a.download = "image.jpg";
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // Try to close the page
+        window.close();
+      };
+    </script>
+  </head>
+  <body></body>
+</html>
