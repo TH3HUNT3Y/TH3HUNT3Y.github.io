@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spec | Bio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Overlay to start the site -->
+  <div class="overlay" onclick="startSite()">
+    <div class="enter-text">Enter</div>
+    <div class="pulse-ring"></div>
+  </div>
+
+  <!-- Background and grid overlay -->
+  <div class="background">
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Main content panel -->
+  <div class="panel">
+    <div class="profile-section">
+      <div class="profile-pic">
+        <img src="pfp2.jpg" alt="Profile" />
+        <div class="profile-glow"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h1>Spec</h1>
+	  <span class="role-badge">
+            <i class="fas fa-computer"></i>
+            Fullstack skidder
+	  </span>
+      <p class="tagline">Zenkizs, Shenron, Entity, Noobyx, NT01, 480, Virus</p>
+    </div>
+	
+	<div class="specialty-tag">
+            <i class="fas fa-code"></i>
+            Learning C#
+          </div>
+		  
+	<div class="specialty-tag">
+            <i class="fab fa-html5"></i>
+            Learning HTML
+          </div>
+		  
+		  
+
+    <!-- GIF replacing stat counters -->
+    <div class="stats">
+      <img src= "togif.gif" alt="Animated Stat" style="width:320px; height:110px; border-radius:16px;" />
+	 </div>
+	
+	
+
+    <!-- Social media links -->
+    <div class="social-links">
+      <a href="https://discordapp.com/users/791502710922936341" class="social-link" target="_blank" aria-label="Discord">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" style="width:24px;" />
+      </a>
+      <a href="https://www.youtube.com/@SpecVR2" class="social-link" target="_blank" aria-label="YouTube">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width:24px;" />
+      </a>
+      <a href="https://guns.lol/spec_" class="social-link" target="_blank" aria-label="Guns.lol">
+        <img src="https://api.iconify.design/mdi/pistol.svg?color=white" alt="Guns.lol" style="width:24px;" />
+      </a>
+    </div>
+
+    <!-- Volume slider -->
+    <div class="controls">
+      <div class="volume-control">
+        <label>Volume <span class="volume-value">50%</span></label>
+        <input type="range" id="volumeSlider" min="0" max="100" value="50" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Cursor trail -->
+  <div class="cursor-trail"></div>
+
+  <!-- Background music -->
+  <audio id="bgAudio" src="music.mp3" loop></audio>
+
+  <!-- Main script -->
+  <script src="script.js"></script>
+</body>
+</html>
