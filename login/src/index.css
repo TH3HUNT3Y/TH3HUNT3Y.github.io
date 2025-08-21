@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MySellAuth-inspired Authentication Design System */
+
+@layer base {
+  :root {
+    /* Background & Surfaces */
+    --background: 240 20% 6%;
+    --foreground: 0 0% 98%;
+    
+    /* Auth Card & Glass Effects */
+    --card: 240 15% 8%;
+    --card-foreground: 0 0% 95%;
+    --glass: 240 15% 12%;
+    --glass-border: 240 15% 20%;
+    
+    /* Auth Brand Colors */
+    --primary: 260 85% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 260 85% 68%;
+    
+    /* Trust & Security Colors */
+    --secondary: 220 70% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 280 65% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Interactive States */
+    --muted: 240 15% 12%;
+    --muted-foreground: 240 10% 65%;
+    --input: 240 15% 15%;
+    --input-foreground: 0 0% 90%;
+    
+    /* Feedback Colors */
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 120 60% 50%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 85% 55%;
+    --warning-foreground: 0 0% 100%;
+    
+    /* Borders & Rings */
+    --border: 240 15% 20%;
+    --ring: 260 85% 58%;
+
+    
+    /* Design System Extensions */
+    --radius: 0.75rem;
+    --auth-radius: 1rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(260 85% 58%) 0%, hsl(280 65% 60%) 100%);
+    --gradient-background: linear-gradient(135deg, hsl(240 20% 6%) 0%, hsl(260 15% 8%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(240 15% 8%) 0%, hsl(240 15% 12%) 100%);
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(260 85% 58% / 0.3) 0%, transparent 70%);
+    
+    /* Shadows */
+    --shadow-auth: 0 25px 50px -12px hsl(240 20% 3% / 0.8);
+    --shadow-glow: 0 0 50px hsl(260 85% 58% / 0.4);
+    --shadow-button: 0 4px 15px hsl(260 85% 58% / 0.3);
+    
+    /* Animation */
+    --transition-auth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
