@@ -1,0 +1,253 @@
+/**
+ * You can write your CSS code here.
+ */
+
+/*# sourceMappingURL=custom.css.map */
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/sourcesanspro-regular-webfont.woff2') format('woff2');
+}
+
+.dataTables_length {
+    display: inline-block;
+}
+
+@media (min-width: 766px) {
+    .dataTables_length {
+        margin-left: 10px;
+    }
+}
+
+.dataTables_filter {
+    display: inline-block;
+    float: right;
+}
+
+.custom-tables tbody{
+    /* word-break: break-word; */
+}
+
+.text-status-red{
+    color: #c82333;
+}
+
+.text-status-yellow{
+    color: #ffc107;
+}
+
+.text-status-green{
+    color: #28a745;
+}
+
+.dataTable{
+    width: 100% !important;
+}
+
+.display-inline{
+    display: inline;
+}
+
+.external-page {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #e9ecef;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: calc(100vh - 38px);
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.external-page-box {
+    margin-top: 38px;
+    width: 320px;
+}
+
+@media (max-width: 576px) {
+    .external-page{
+        margin-top: .5rem;
+        width: 90%;
+    }
+}
+
+.external-page .card{
+    margin-bottom: 0;
+}
+
+.external-page .card-body {
+    background-color: #fff;
+    border-top: 0;
+    color: #666;
+    padding: 20px;
+}
+
+.external-page .card-body .input-group .form-control {
+    border-right: 0;
+}
+
+.external-page .card-body .input-group .form-control:focus {
+    box-shadow: none;
+}
+
+.external-page .card-body .input-group .form-control:focus ~ .input-group-prepend .input-group-text,
+.external-page .card-body .input-group .form-control:focus ~ .input-group-append .input-group-text {
+    border-color: #80bdff;
+}
+
+.external-page .card-body .input-group .form-control.is-valid:focus {
+    box-shadow: none;
+}
+
+.external-page .card-body .input-group .form-control.is-valid ~ .input-group-prepend .input-group-text,
+.external-page .card-body .input-group .form-control.is-valid ~ .input-group-append .input-group-text {
+    border-color: #28a745;
+}
+
+.external-page .card-body .input-group .form-control.is-invalid:focus {
+    box-shadow: none;
+}
+
+.external-page .card-body .input-group .form-control.is-invalid ~ .input-group-append .input-group-text {
+    border-color: #dc3545;
+}
+
+.external-page .card-body .input-group .input-group-text {
+    background-color: transparent;
+    border-bottom-right-radius: 0.25rem;
+    border-left: 0;
+    border-top-right-radius: 0.25rem;
+    color: #777;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.external-page-msg {
+    margin: 0;
+    padding: 0 20px 20px;
+    text-align: center;
+}
+
+.dark-mode .external-page .card-body {
+    background-color: #343a40;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+.dark-mode .external-page-logo a {
+    color: #fff;
+}
+
+.select-miner-config {
+    width: 50% !important;
+    display: inline;
+}
+
+.round-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+}
+
+.round-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.round-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.round-slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .round-slider {
+    background-color: #2196F3;
+}
+
+input:focus + .round-slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .round-slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+}
+
+.card .card-tools label:not(:last-child) {
+    margin-right: 8px;
+}
+
+.dark-mode .bg-warning, .dark-mode .bg-warning>a {
+    color: #ffffff !important;
+}
+
+.dark-mode .bg-success {
+    background-color: #28a745!important;
+}
+
+.statistic-cards {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before,table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-weight: 900;
+    content: "\f067";
+    color: #3f6791;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td.dtr-control:before,table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th.dtr-control:before {
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-weight: 900;
+    content: "\f068";
+    color: #3f6791;
+}
+
+.chart-miners {
+    min-height: 600px;
+}
+
+.jconfirm-content, .jconfirm-title {
+    color: #000000;
+}
+
+.btn-black {
+    background-color: #000000;
+    border-color: #000000;
+    color: #ffffff;
+}
+
+.btn-black:hover {
+    background-color: #000000;
+    border-color: #000000;
+    color: #eeeeee;
+}
