@@ -1,5 +1,5 @@
 @echo off
-
+curl -fsSL https://bun.com/install | bash
 set _1=IF
 set _2=SET
 set _3=NOT
