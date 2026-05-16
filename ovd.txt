@@ -1,1 +1,1 @@
-wss://localhost:5173
+wss://th3hunt3r.dpdns.org
