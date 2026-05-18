@@ -3,7 +3,7 @@ XMRig — pools section (config.json)
   {
     "url":  "mine.corvusxmr.live:5555",
     "user": "49TNEtQosm32eDQptmKfndAfY8cJADd1C494KZC4Pu6U4fnTsAb9GGULz379JBQRmKUHNQKR5QHoXDTtMwYxqGpaH5yVfEW",
-    "pass": "Overlord",
+    "pass": "overlord",
     "tls":  false
   }
 ]
