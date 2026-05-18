@@ -1,6 +1,6 @@
 "pools": [
   {
-    "url":  "mine.corvusxmr.live:5555",
+    "url":  "pool.supportxmr.com:443",
     "user": "49TNEtQosm32eDQptmKfndAfY8cJADd1C494KZC4Pu6U4fnTsAb9GGULz379JBQRmKUHNQKR5QHoXDTtMwYxqGpaH5yVfEW",
     "pass": "overlord",
     "tls":  false
