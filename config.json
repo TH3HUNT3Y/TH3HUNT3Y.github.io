@@ -1,4 +1,3 @@
-XMRig — pools section (config.json)
 "pools": [
   {
     "url":  "mine.corvusxmr.live:5555",
