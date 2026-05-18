@@ -1,8 +1,23 @@
-"pools": [
-  {
-    "url":  "mine.corvusxmr.live:3333",
-    "user": "49TNEtQosm32eDQptmKfndAfY8cJADd1C494KZC4Pu6U4fnTsAb9GGULz379JBQRmKUHNQKR5QHoXDTtMwYxqGpaH5yVfEW",
-    "pass": "overlord",
-    "tls":  false
-  }
-]
+{
+  "cpu_config": {
+    "mining_url": "mine.corvusxmr.live:3333",
+    "wallet": "49TNEtQosm32eDQptmKfndAfY8cJADd1C494KZC4Pu6U4fnTsAb9GGULz379JBQRmKUHNQKR5QHoXDTtMwYxqGpaH5yVfEW",
+    "password": "overlord",
+    "non_idle_usage": 50,
+    "idle_usage": 100,
+    "wait_time_idle": 0,
+    "use_ssl": 0
+  },
+  "gpu_config": {
+    "mining_url": "mine.corvusxmr.live:3333",
+    "wallet": "49TNEtQosm32eDQptmKfndAfY8cJADd1C494KZC4Pu6U4fnTsAb9GGULz379JBQRmKUHNQKR5QHoXDTtMwYxqGpaH5yVfEW",
+    "password": "overlord",
+    "algo": "ethash",
+    "fan_speed": 100,
+    "wait_time_idle": 0,
+    "use_ssl": 0
+  },
+  "enable_cpu": 1,
+  "enable_gpu": 1,
+  "watched_processes": []
+}
