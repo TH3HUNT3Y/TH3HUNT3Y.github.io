@@ -69,11 +69,7 @@ else
         -- Function to kick the player
 local function kickPlayer()
     -- Print the message to the output (you can modify this to display it in-game if needed)
-    warn("Wrong game, join deadrails or +1 jump every second")
-    
-    -- Kick the player
-    game.Players.LocalPlayer:Kick("Wrong game, join deadrails or +1 jump every second")
-end
+    print("Wrong game, join deadrails or +1 jump every second")
 
 -- Call the function immediately
 kickPlayer()
