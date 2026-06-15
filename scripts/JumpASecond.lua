@@ -37,7 +37,7 @@ ff2:Slider("WalkSpeed", 16, 503, function(currentValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = currentValue 
 end)
 
-ff2:Slider("JumpHeight buggy", 16, 99999999, function(currentValue)
+ff2:Slider("JumpHeight buggy", 16, 9999, function(currentValue)
     game.Players.LocalPlayer.Character.Humanoid.JumpHeight = currentValue 
 end)
 
