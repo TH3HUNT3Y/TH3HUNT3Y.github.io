@@ -3,7 +3,7 @@
 $config = [];
 
 /* Change UnamSancam below to change the password. */
-$config['password'] = 'TH4HUNT4R';
+$config['password'] = 'unam';
 
 /*
  * If your web server uses Apache or IIS then there is no need to
